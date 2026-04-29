@@ -151,47 +151,6 @@
   placeFeature();
   mqMobile.addEventListener('change', placeFeature);
 
-  // ============= TESTIMONIANZE slider =============
-  const REVIEWS = [
-    {
-      text: 'Hanno fatto la torta del nostro matrimonio. Tre piani, design pulitissimo, e un sapore che gli ospiti ancora ci nominano.',
-      author: 'Giulio & Elena',
-      role: 'Catania',
-      src: 'Sposi · 06/2025',
-    },
-    {
-      text: 'Il panettone di Chantigne è un rito di Natale. Lievitazione perfetta, profumo di arancia che ti resta addosso per ore.',
-      author: 'Andrea M.',
-      role: 'Milano',
-      src: 'Tripadvisor · ★ 5,0',
-    },
-  ];
-
-  const tQuote = document.getElementById('testi-quote');
-  const tText = document.getElementById('testi-text');
-  const tName = document.getElementById('testi-name');
-  const tRole = document.getElementById('testi-role');
-  const tSrc = document.getElementById('testi-src');
-  const tNav = document.getElementById('testi-nav');
-
-  const setReview = (i) => {
-    const r = REVIEWS[i];
-    tText.textContent = r.text;
-    tName.textContent = r.author;
-    tRole.textContent = r.role;
-    tSrc.textContent = r.src;
-    tNav.querySelectorAll('.testi__dot').forEach((d, idx) => {
-      d.classList.toggle('is-active', idx === i);
-    });
-    tQuote.style.animation = 'none';
-    void tQuote.offsetWidth;
-    tQuote.style.animation = '';
-  };
-
-  tNav.querySelectorAll('.testi__dot').forEach((dot) => {
-    dot.addEventListener('click', () => setReview(parseInt(dot.dataset.i, 10)));
-  });
-
   // ============= PRENOTAZIONE form =============
   const formEl = document.getElementById('prenota-form');
   const right = document.getElementById('prenota-right');

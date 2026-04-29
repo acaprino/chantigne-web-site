@@ -693,72 +693,6 @@ button { font-family: inherit; cursor: pointer; }
 .gallery__cell--0 { grid-row: span 2; }
 .gallery__cell--3 { grid-row: span 2; }
 
-/* ============= TESTIMONIANZE ============= */
-.testi {
-  background: var(--ink);
-  color: var(--paper);
-  max-width: none;
-  padding: 140px var(--pad);
-}
-.testi__inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  text-align: center;
-}
-.testi .eyebrow {
-  color: rgba(251,246,236,0.65);
-  letter-spacing: 0.22em;
-}
-.testi__quote {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin: 36px 0 50px;
-  color: var(--paper);
-  text-wrap: balance;
-  position: relative;
-  animation: fade .5s ease;
-}
-.testi__mark {
-  font-style: italic;
-  color: var(--accent);
-  margin-right: 4px;
-}
-.testi__author {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(251,246,236,0.18);
-  padding-top: 30px;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.testi__name {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 24px;
-  color: var(--accent);
-}
-.testi__role {
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(251,246,236,0.6);
-  margin-top: 4px;
-}
-.testi__nav { display: flex; gap: 10px; }
-.testi__dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  border: 1px solid rgba(251,246,236,0.4);
-  background: transparent;
-  padding: 0;
-  transition: background .25s ease, border-color .25s ease;
-}
-.testi__dot.is-active { background: var(--accent); border-color: var(--accent); }
-
 /* ============= PRENOTAZIONE ============= */
 .prenota__inner {
   display: grid;
@@ -1162,12 +1096,6 @@ button { font-family: inherit; cursor: pointer; }
   .gallery__cell--0, .gallery__cell--3 { grid-row: auto; grid-column: auto; }
   .gallery__head { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 32px; }
   .gallery__ig { font-size: 13px; }
-
-  /* Testi */
-  .testi { padding: 80px var(--pad); }
-  .testi__quote { font-size: clamp(22px, 5vw, 28px); margin: 24px 0 32px; }
-  .testi__author { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 20px; }
-  .testi__name { font-size: 20px; }
 
   /* Prenotazione */
   .prenota__inner { grid-template-columns: 1fr; gap: 40px; }
