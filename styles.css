@@ -270,7 +270,17 @@ button { font-family: inherit; cursor: pointer; }
 @keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
 .hero__scrim {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(20,17,14,0.55) 0%, rgba(20,17,14,0.15) 35%, rgba(20,17,14,0.75) 100%);
+  /* Two-layer treatment so the video reads as a *backdrop*, not a feature:
+     - vertical gradient: dark top (nav legibility) + dark bottom (title legibility),
+       with the middle still pulled down enough to mute busy frames.
+     - radial vignette: subtle inward darkening at the corners. */
+  background:
+    radial-gradient(ellipse 120% 90% at 50% 55%, rgba(20,17,14,0) 0%, rgba(20,17,14,0.35) 100%),
+    linear-gradient(180deg,
+      rgba(20,17,14,0.70) 0%,
+      rgba(20,17,14,0.40) 35%,
+      rgba(20,17,14,0.55) 65%,
+      rgba(20,17,14,0.85) 100%);
   z-index: 1;
 }
 .hero__content {
@@ -1056,6 +1066,15 @@ button { font-family: inherit; cursor: pointer; }
   .nav__right a:not(.nav__cta):not(:nth-last-of-type(2)):not(:nth-last-of-type(3)) { display: none; }
   .specialita__grid { grid-template-columns: 1fr; gap: 40px; }
   .specialita__feature { position: static; }
+  /* When JS moves the feature inside the list on mobile, render it as the
+     expanded panel of the active row -- image + detail directly under the tap. */
+  .specialita__list .specialita__feature {
+    padding: 18px 0 28px;
+    gap: 22px;
+    border-bottom: 1px solid var(--line);
+    animation: fade .45s ease;
+  }
+  .specialita__list .specialita__media { aspect-ratio: 5/4; }
   .storia__inner { grid-template-columns: 1fr; gap: 50px; }
   .prenota__inner { grid-template-columns: 1fr; gap: 50px; }
   .footer__inner { grid-template-columns: 1fr 1fr; }
