@@ -1,4 +1,32 @@
 (() => {
+  // ============= HERO video ping-pong loop =============
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    heroVideo.volume = 0;
+    let lastTs = 0;
+    const reverseStep = (ts) => {
+      if (!lastTs) lastTs = ts;
+      const dt = (ts - lastTs) / 1000;
+      lastTs = ts;
+      heroVideo.currentTime = Math.max(0, heroVideo.currentTime - dt);
+      if (heroVideo.currentTime <= 0.02) {
+        lastTs = 0;
+        heroVideo.play().catch(() => {});
+        return;
+      }
+      requestAnimationFrame(reverseStep);
+    };
+    heroVideo.addEventListener('ended', () => {
+      lastTs = 0;
+      heroVideo.pause();
+      requestAnimationFrame(reverseStep);
+    });
+    heroVideo.addEventListener('loadedmetadata', () => {
+      heroVideo.play().catch(() => {});
+    });
+  }
+
   // ============= NAV scroll + drawer state =============
   const nav = document.getElementById('nav');
   const burger = document.getElementById('nav-burger');
