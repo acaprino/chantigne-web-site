@@ -90,12 +90,31 @@
   };
 
   const list = document.getElementById('specialita-list');
+  const feature = document.querySelector('.specialita__feature');
   const elName = document.getElementById('specialita-name');
   const elPrice = document.getElementById('specialita-price');
   const elDesc = document.getElementById('specialita-desc');
   const elImg = document.getElementById('specialita-img');
   const elTag = document.getElementById('specialita-tag');
   const elDetail = document.getElementById('specialita-detail');
+
+  // On mobile, move the feature panel (image + description) directly after the
+  // active row so it reads as that row's expanded detail. On desktop, keep it
+  // exactly where the HTML put it (sticky right column of the grid) -- we cache
+  // the original parent so desktop never sees a DOM mutation.
+  const mqMobile = window.matchMedia('(max-width: 1024px)');
+  const featureHome = feature ? feature.parentElement : null;
+  const placeFeature = () => {
+    if (!feature || !featureHome || !list) return;
+    if (mqMobile.matches) {
+      const active = list.querySelector('.specialita__row.is-active');
+      if (active && feature.previousElementSibling !== active) {
+        active.insertAdjacentElement('afterend', feature);
+      }
+    } else if (feature.parentElement !== featureHome) {
+      featureHome.appendChild(feature);
+    }
+  };
 
   const setProduct = (id) => {
     const p = PRODUCTS[id];
@@ -109,6 +128,7 @@
     elTag.textContent = p.tag;
     elImg.src = p.img;
     elImg.alt = p.name;
+    placeFeature();
     // restart fade animation
     elImg.style.animation = 'none';
     elDetail.style.animation = 'none';
@@ -119,10 +139,17 @@
   };
 
   list.querySelectorAll('.specialita__row').forEach((row) => {
-    row.addEventListener('mouseenter', () => setProduct(row.dataset.id));
+    // mouseenter on desktop only -- on mobile a tap should not fire hover-like
+    // behavior twice, and the click handler is enough.
+    row.addEventListener('mouseenter', () => {
+      if (!mqMobile.matches) setProduct(row.dataset.id);
+    });
     row.addEventListener('click', () => setProduct(row.dataset.id));
     row.addEventListener('focus', () => setProduct(row.dataset.id));
   });
+
+  placeFeature();
+  mqMobile.addEventListener('change', placeFeature);
 
   // ============= TESTIMONIANZE slider =============
   const REVIEWS = [
