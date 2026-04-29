@@ -2,16 +2,19 @@
   // ============= HERO video ping-pong loop =============
   const heroVideo = document.getElementById('hero-video');
   if (heroVideo) {
+    const HERO_SPEED = 0.8;
     heroVideo.muted = true;
     heroVideo.volume = 0;
+    heroVideo.playbackRate = HERO_SPEED;
     let lastTs = 0;
     const reverseStep = (ts) => {
       if (!lastTs) lastTs = ts;
       const dt = (ts - lastTs) / 1000;
       lastTs = ts;
-      heroVideo.currentTime = Math.max(0, heroVideo.currentTime - dt);
+      heroVideo.currentTime = Math.max(0, heroVideo.currentTime - dt * HERO_SPEED);
       if (heroVideo.currentTime <= 0.02) {
         lastTs = 0;
+        heroVideo.playbackRate = HERO_SPEED;
         heroVideo.play().catch(() => {});
         return;
       }
@@ -23,6 +26,7 @@
       requestAnimationFrame(reverseStep);
     });
     heroVideo.addEventListener('loadedmetadata', () => {
+      heroVideo.playbackRate = HERO_SPEED;
       heroVideo.play().catch(() => {});
     });
   }
