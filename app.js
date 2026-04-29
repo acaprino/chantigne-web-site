@@ -2,7 +2,7 @@
   // ============= HERO video ping-pong (boomerang) loop =============
   const heroVideo = document.getElementById('hero-video');
   if (heroVideo) {
-    const SPEED = 0.8;
+    const SPEED = 0.5;
     const END_GUARD = 0.12; // start reversing this many seconds before duration
 
     heroVideo.muted = true;
