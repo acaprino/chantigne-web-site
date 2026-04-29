@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chantigne — Bar Pasticceria · Acquedolci dal 1962</title>
+  <meta name="description" content="Chantigne, bar pasticceria gelateria ad Acquedolci dal 1962. Croissant lievitati 48 ore, gelato mantecato a vista, panettoni d'autore e piccola pasticceria di stagione.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- ============= NAV ============= -->
+    <nav class="nav nav--on-dark" id="nav">
+      <div class="nav__inner">
+        <a href="#top" class="nav__brand" data-nav-close>
+          <span class="nav__brand-name">Chantigne</span>
+          <span class="nav__brand-est">est. 1962</span>
+        </a>
+        <div class="nav__right">
+          <a href="#prodotti" class="nav__link">Specialità</a>
+          <a href="#storia" class="nav__link">Storia</a>
+          <a href="#eventi" class="nav__link">Eventi</a>
+          <a href="#galleria" class="nav__link">Galleria</a>
+          <a href="#contatti" class="nav__link">Contatti</a>
+          <a href="#prenota" class="nav__cta">Prenota</a>
+        </div>
+        <button class="nav__burger" id="nav-burger" aria-label="Apri menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav__drawer" id="nav-drawer">
+        <div class="nav__drawer-inner">
+          <a href="#prodotti" data-nav-close>Specialità</a>
+          <a href="#storia" data-nav-close>Storia</a>
+          <a href="#eventi" data-nav-close>Eventi</a>
+          <a href="#galleria" data-nav-close>Galleria</a>
+          <a href="#contatti" data-nav-close>Contatti</a>
+          <a href="#prenota" data-nav-close class="nav__drawer-cta">Prenota un tavolo →</a>
+          <div class="nav__drawer-meta">
+            <div>
+              <span>Telefono</span>
+              <strong>+39 0941 727249</strong>
+            </div>
+            <div>
+              <span>Indirizzo</span>
+              <strong>Corso Italia, 79<br>98070 Acquedolci (ME)</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============= HERO ============= -->
+    <header class="hero hero--full" id="top">
+      <div class="hero__bg" style="background-image: url('img/colazione.webp');"></div>
+      <div class="hero__scrim"></div>
+      <div class="hero__content">
+        <div class="hero__eyebrow">
+          <span class="dot"></span> Bar · Pasticceria · Gelateria — Acquedolci, Sicilia
+        </div>
+        <h1 class="hero__title">
+          <span class="hero__title-line">Il dolce</span>
+          <span class="hero__title-line hero__title-italic">tempo</span>
+          <span class="hero__title-line">delle cose</span>
+          <span class="hero__title-line hero__title-italic">fatte bene.</span>
+        </h1>
+        <p class="hero__sub">
+          Dal 1962, croissant lievitati 48 ore, gelato mantecato a vista, panettoni d'autore e una piccola pasticceria che cambia con le stagioni.
+        </p>
+        <div class="hero__actions">
+          <a href="#prodotti" class="btn btn--solid">Scopri le specialità</a>
+          <a href="#prenota" class="btn btn--ghost">Prenota un tavolo →</a>
+        </div>
+      </div>
+      <div class="hero__meta">
+        <div><span class="hero__meta-k">Aperto oggi</span><span class="hero__meta-v">06:30 — 23:00</span></div>
+        <div><span class="hero__meta-k">Corso Italia, 79</span><span class="hero__meta-v">Acquedolci (ME)</span></div>
+        <div><span class="hero__meta-k">Specialità del giorno</span><span class="hero__meta-v">Cornetto al pistacchio di Bronte</span></div>
+      </div>
+    </header>
+
+    <!-- ============= MARQUEE ============= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item"><span class="marquee__star">✦</span> Croissant 48h</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Gelato mantecato</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Panettone artigianale</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Colomba pasquale</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Torte di design</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Piccola pasticceria</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Caffè di specialità</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Aperitivo siciliano</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Croissant 48h</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Gelato mantecato</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Panettone artigianale</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Colomba pasquale</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Torte di design</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Piccola pasticceria</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Caffè di specialità</span>
+        <span class="marquee__item"><span class="marquee__star">✦</span> Aperitivo siciliano</span>
+      </div>
+    </div>
+
+    <!-- ============= SPECIALITÀ ============= -->
+    <section class="section specialita" id="prodotti">
+      <div class="section__head">
+        <div class="eyebrow">— 01 / Le specialità</div>
+        <h2 class="section__title">Cinque <em>ossessioni</em>,<br>una sola idea di dolcezza.</h2>
+      </div>
+      <div class="specialita__grid">
+        <div class="specialita__list" id="specialita-list">
+          <button class="specialita__row is-active" data-id="croissant">
+            <span class="specialita__num">01</span>
+            <span class="specialita__name">Croissant<span class="specialita__sub">Lievitati 48 ore</span></span>
+            <span class="specialita__arrow">→</span>
+          </button>
+          <button class="specialita__row" data-id="gelato">
+            <span class="specialita__num">02</span>
+            <span class="specialita__name">Granita &amp; Gelato<span class="specialita__sub">Tradizione siciliana</span></span>
+            <span class="specialita__arrow">→</span>
+          </button>
+          <button class="specialita__row" data-id="panettone">
+            <span class="specialita__num">03</span>
+            <span class="specialita__name">Panettone &amp; Colomba<span class="specialita__sub">Lievito madre vivo</span></span>
+            <span class="specialita__arrow">→</span>
+          </button>
+          <button class="specialita__row" data-id="mignon">
+            <span class="specialita__num">04</span>
+            <span class="specialita__name">Piccola Pasticceria<span class="specialita__sub">Mignon e crostatine</span></span>
+            <span class="specialita__arrow">→</span>
+          </button>
+          <button class="specialita__row" data-id="torte">
+            <span class="specialita__num">05</span>
+            <span class="specialita__name">Torte di Design<span class="specialita__sub">Su misura per ogni occasione</span></span>
+            <span class="specialita__arrow">→</span>
+          </button>
+        </div>
+        <div class="specialita__feature">
+          <div class="specialita__media">
+            <img id="specialita-img" src="img/croissant.webp" alt="Croissant" loading="lazy">
+            <span class="specialita__tag" id="specialita-tag">L'icona</span>
+          </div>
+          <div class="specialita__detail" id="specialita-detail">
+            <div class="specialita__detail-head">
+              <h3 id="specialita-name">Croissant</h3>
+              <span class="specialita__price" id="specialita-price">da 1,80 €</span>
+            </div>
+            <p id="specialita-desc">Burro francese AOP, sfoglia a strati, lievitazione lenta a freddo. Versione classica e al cioccolato, sfornati ogni mattina.</p>
+            <a href="#" class="link-arrow">Vedi tutta la vetrina →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= STORIA ============= -->
+    <section class="section storia" id="storia">
+      <div class="storia__inner">
+        <div class="storia__media">
+          <img src="img/vetrina.webp" alt="Vetrina Chantigne" class="storia__img storia__img--main" loading="lazy">
+          <img src="img/croissant.webp" alt="Croissant artigianali" class="storia__img storia__img--small" loading="lazy">
+          <div class="storia__stamp">
+            <span>est.</span>
+            <strong>1962</strong>
+            <span>Acquedolci</span>
+          </div>
+        </div>
+        <div class="storia__text">
+          <div class="eyebrow">— 02 / La nostra storia</div>
+          <h2 class="section__title">Tre generazioni<br>a impastare lo <em>stesso</em><br>gesto.</h2>
+          <p class="storia__lede">
+            Nel 1962 Don Saverio aprì una piccola bottega sul lungomare di Acquedolci con un forno a legna e una sola idea: che il pane e il dolce dovessero avere il tempo di diventare buoni.
+          </p>
+          <p>
+            Sessant'anni dopo i suoi nipoti continuano. Ogni mattina alle quattro le luci si accendono in laboratorio, il lievito madre viene rinfrescato, il burro francese tirato in sfoglia. Niente è cambiato. Tutto è cambiato.
+          </p>
+          <div class="storia__signature">
+            <span class="storia__sig-name">— Famiglia Lo Iacono</span>
+            <span class="storia__sig-role">Pasticceri dal 1962</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= EVENTI ============= -->
+    <section class="section eventi" id="eventi">
+      <div class="eventi__inner" style="background-image: linear-gradient(180deg, rgba(20,17,14,0.25), rgba(20,17,14,0.65)), url('img/torta.webp');">
+        <div class="eventi__content">
+          <div class="eyebrow eyebrow--light">— 03 / Eventi &amp; Catering</div>
+          <h2 class="section__title section__title--light">Il dolce che<br>arriva <em>dove serve</em>.</h2>
+          <p class="eventi__sub">
+            Matrimoni, battesimi, lauree, cene aziendali. Portiamo Chantigne a casa vostra con allestimenti su misura, sweet table d'autore, torte e piccola pasticceria a buffet.
+          </p>
+          <div class="eventi__pills">
+            <span class="pill">Matrimoni</span>
+            <span class="pill">Battesimi &amp; Comunioni</span>
+            <span class="pill">Aziendali</span>
+            <span class="pill">Sweet table</span>
+            <span class="pill">Confettate</span>
+          </div>
+          <a href="#prenota" class="btn btn--light">Richiedi un preventivo →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= GALLERY ============= -->
+    <section class="section gallery" id="galleria">
+      <div class="gallery__head">
+        <div class="eyebrow">— 04 / Galleria</div>
+        <h2 class="section__title">Il <em>quotidiano</em><br>della bottega.</h2>
+        <a href="https://www.instagram.com/pasticceria_chantigne/" target="_blank" rel="noopener" class="gallery__ig">@pasticceria_chantigne · seguici su Instagram →</a>
+      </div>
+      <div class="gallery__grid">
+        <a href="https://www.instagram.com/pasticceria_chantigne/" target="_blank" rel="noopener" class="gallery__cell gallery__cell--0"><img src="img/colazione.webp" alt="Colazione siciliana" loading="lazy"><div class="gallery__cell-overlay"><span>↗</span></div></a>
+        <a href="https://www.instagram.com/pasticceria_chantigne/" target="_blank" rel="noopener" class="gallery__cell gallery__cell--1"><img src="img/croissant.webp" alt="Croissant" loading="lazy"><div class="gallery__cell-overlay"><span>↗</span></div></a>
+        <a href="https://www.instagram.com/pasticceria_chantigne/" target="_blank" rel="noopener" class="gallery__cell gallery__cell--2"><img src="img/vetrina.webp" alt="Vetrina" loading="lazy"><div class="gallery__cell-overlay"><span>↗</span></div></a>
+        <a href="https://www.instagram.com/pasticceria_chantigne/" target="_blank" rel="noopener" class="gallery__cell gallery__cell--3"><img src="img/torta.webp" alt="Torta di design" loading="lazy"><div class="gallery__cell-overlay"><span>↗</span></div></a>
+        <a href="https://www.instagram.com/pasticceria_chantigne/" target="_blank" rel="noopener" class="gallery__cell gallery__cell--0"><img src="img/colombe.webp" alt="Colombe artigianali" loading="lazy"><div class="gallery__cell-overlay"><span>↗</span></div></a>
+        <a href="https://www.instagram.com/pasticceria_chantigne/" target="_blank" rel="noopener" class="gallery__cell gallery__cell--1"><img src="img/vetrina.webp" alt="Pasticceria mignon" loading="lazy"><div class="gallery__cell-overlay"><span>↗</span></div></a>
+        <a href="https://www.instagram.com/pasticceria_chantigne/" target="_blank" rel="noopener" class="gallery__cell gallery__cell--2"><img src="img/croissant.webp" alt="Sfoglia" loading="lazy"><div class="gallery__cell-overlay"><span>↗</span></div></a>
+        <a href="https://www.instagram.com/pasticceria_chantigne/" target="_blank" rel="noopener" class="gallery__cell gallery__cell--3"><img src="img/colombe.webp" alt="Colomba glassata" loading="lazy"><div class="gallery__cell-overlay"><span>↗</span></div></a>
+      </div>
+    </section>
+
+    <!-- ============= TESTIMONIANZE ============= -->
+    <section class="section testi">
+      <div class="testi__inner">
+        <div class="eyebrow">— 05 / Le voci</div>
+        <blockquote class="testi__quote" id="testi-quote">
+          <span class="testi__mark">"</span><span id="testi-text">Il miglior croissant a sud di Roma. Ci faccio una deviazione di sessanta chilometri ogni volta che torno a trovare i miei.</span>
+        </blockquote>
+        <div class="testi__author">
+          <div>
+            <div class="testi__name" id="testi-name">Marta C.</div>
+            <div class="testi__role"><span id="testi-role">Palermo</span> · <span id="testi-src">Google · ★ 5,0</span></div>
+          </div>
+          <div class="testi__nav" id="testi-nav">
+            <button class="testi__dot is-active" data-i="0" aria-label="Recensione 1"></button>
+            <button class="testi__dot" data-i="1" aria-label="Recensione 2"></button>
+            <button class="testi__dot" data-i="2" aria-label="Recensione 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= PRENOTAZIONE ============= -->
+    <section class="section prenota" id="prenota">
+      <div class="prenota__inner">
+        <div class="prenota__left">
+          <div class="eyebrow">— 06 / Prenotazione</div>
+          <h2 class="section__title">Tieniti un<br><em>tavolo</em> al sole.</h2>
+          <p class="prenota__sub">
+            Per la colazione, l'aperitivo o un dolce dopo cena. Confermiamo entro un'ora dalla richiesta.
+          </p>
+          <div class="prenota__contact">
+            <div>
+              <span class="prenota__contact-k">Telefono</span>
+              <span class="prenota__contact-v">+39 0941 727249</span>
+            </div>
+            <div>
+              <span class="prenota__contact-k">Indirizzo</span>
+              <span class="prenota__contact-v">Corso Italia, 79<br>98070 Acquedolci (ME)</span>
+            </div>
+            <div>
+              <span class="prenota__contact-k">Orari</span>
+              <span class="prenota__contact-v">Lun — Dom<br>06:30 — 23:00</span>
+            </div>
+            <div>
+              <span class="prenota__contact-k">Instagram</span>
+              <span class="prenota__contact-v">@pasticceria_chantigne</span>
+            </div>
+          </div>
+        </div>
+        <div class="prenota__right" id="prenota-right">
+          <form class="prenota__form" id="prenota-form">
+            <div class="prenota__form-head">
+              <span>Prenota un tavolo</span>
+              <span class="prenota__form-est">Risposta in ~1h</span>
+            </div>
+            <label class="field">
+              <span>Nome</span>
+              <input required name="nome" placeholder="Il tuo nome">
+            </label>
+            <div class="field-row">
+              <label class="field">
+                <span>Persone</span>
+                <select name="persone">
+                  <option>1</option><option selected>2</option><option>3</option><option>4</option>
+                  <option>5</option><option>6</option><option>7</option><option>8</option><option>9+</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Data</span>
+                <input required type="date" name="data">
+              </label>
+              <label class="field">
+                <span>Ora</span>
+                <select name="ora">
+                  <option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option>
+                  <option>12:30</option><option>13:00</option><option>18:00</option><option>19:00</option>
+                  <option selected>20:00</option><option>21:00</option><option>22:00</option>
+                </select>
+              </label>
+            </div>
+            <label class="field">
+              <span>Occasione · note</span>
+              <textarea rows="3" name="note" placeholder="Compleanno, allergie, tavolo all'aperto..."></textarea>
+            </label>
+            <button class="btn btn--solid btn--full" type="submit">Invia richiesta →</button>
+            <p class="prenota__fineprint">
+              Compilando il form acconsenti al trattamento dei dati ai fini della prenotazione.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= FOOTER ============= -->
+    <footer class="footer" id="contatti">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__mark">C</div>
+          <div class="footer__name">Chantigne</div>
+          <div class="footer__tag">Bar · Pasticceria · Gelateria<br>Acquedolci, dal 1962</div>
+        </div>
+        <div class="footer__col">
+          <h4>Bottega</h4>
+          <a href="#prodotti">Specialità</a>
+          <a href="#storia">La nostra storia</a>
+          <a href="#eventi">Eventi &amp; Catering</a>
+          <a href="#galleria">Galleria</a>
+        </div>
+        <div class="footer__col">
+          <h4>Contatti</h4>
+          <a href="tel:+390941727249">+39 0941 727249</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Corso+Italia+79+Acquedolci" target="_blank" rel="noopener">Corso Italia, 79<br>98070 Acquedolci (ME)</a>
+        </div>
+        <div class="footer__col">
+          <h4>Seguici</h4>
+          <a href="https://www.instagram.com/pasticceria_chantigne/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Pasticceria+Chantigne+Acquedolci" target="_blank" rel="noopener">Google Maps</a>
+          <a href="tel:+390941727249">Chiama ora</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Chantigne · Acquedolci</span>
+        <span class="footer__motto">— il dolce tempo delle cose fatte bene —</span>
+        <span>Corso Italia, 79 · +39 0941 727249</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
