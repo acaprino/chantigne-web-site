@@ -259,14 +259,22 @@ button { font-family: inherit; cursor: pointer; }
 @keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
 .hero__scrim {
   position: absolute; inset: 0;
-  /* Cream fade-to-bottom: video stays clean at the top (where nav sits over
-     it), gradually washes into the page background by the bottom (where the
-     dark title and meta sit on near-solid cream). The base color is --bg so
-     the fade blends seamlessly into the body. */
-  background: linear-gradient(180deg,
-    rgba(245,237,224, 0.00) 0%,
-    rgba(245,237,224, 0.35) 55%,
-    rgba(245,237,224, 0.95) 100%);
+  /* Two stacked gradients (first listed = on top):
+     1. Dark veil under the nav band: the nav uses white text and sits over
+        raw video (no cream yet up there), so without this the brand and links
+        vanish on bright frames.
+     2. Cream fade-to-bottom: the video washes into the page background by the
+        bottom of the hero, where the dark title and meta sit on near-solid
+        cream. Base color is --bg so the fade blends with the body. */
+  background:
+    linear-gradient(180deg,
+      rgba(20,17,14, 0.60) 0%,
+      rgba(20,17,14, 0.30) 12%,
+      rgba(20,17,14, 0.00) 24%),
+    linear-gradient(180deg,
+      rgba(245,237,224, 0.00) 0%,
+      rgba(245,237,224, 0.35) 55%,
+      rgba(245,237,224, 0.95) 100%);
   z-index: 1;
 }
 .hero__content {
