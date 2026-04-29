@@ -162,15 +162,16 @@ button { font-family: inherit; cursor: pointer; }
 }
 .nav__brand-name {
   font-family: var(--font-display);
-  font-size: 40px;
+  font-size: 56px;
   letter-spacing: 0.02em;
+  line-height: 1;
 }
 .nav__brand-est {
-  font-size: 13px;
+  font-size: 16px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--inkSoft);
-  margin-left: 6px;
+  margin-left: 8px;
 }
 .nav__cta {
   font-size: 13px;
@@ -256,8 +257,15 @@ button { font-family: inherit; cursor: pointer; }
   object-fit: cover;
   object-position: center;
   z-index: 0;
-  animation: heroZoom 16s ease-out forwards;
   pointer-events: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+/* Ken Burns zoom kept for image-based heroes; disabled on the video bg
+   because re-scaling each video frame causes subpixel jitter. */
+.hero__bg:not(video) {
+  animation: heroZoom 16s ease-out forwards;
 }
 @keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
 .hero__scrim {
@@ -1062,7 +1070,7 @@ button { font-family: inherit; cursor: pointer; }
   .nav__brand-est { display: none; }
   .nav__right { display: none; }
   .nav__burger { display: inline-flex; }
-  .nav__brand-name { font-size: 32px; }
+  .nav__brand-name { font-size: 42px; }
 
   .section { padding: 80px var(--pad); }
   .section__head { margin-bottom: 50px; }
