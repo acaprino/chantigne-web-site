@@ -154,12 +154,6 @@
   // ============= TESTIMONIANZE slider =============
   const REVIEWS = [
     {
-      text: 'Il miglior croissant a sud di Roma. Ci faccio una deviazione di sessanta chilometri ogni volta che torno a trovare i miei.',
-      author: 'Marta C.',
-      role: 'Palermo',
-      src: 'Google · ★ 5,0',
-    },
-    {
       text: 'Hanno fatto la torta del nostro matrimonio. Tre piani, design pulitissimo, e un sapore che gli ospiti ancora ci nominano.',
       author: 'Giulio & Elena',
       role: 'Catania',
