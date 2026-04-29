@@ -78,17 +78,6 @@ button { font-family: inherit; cursor: pointer; }
 .btn--solid:hover { background: var(--accentDark); transform: translateY(-1px); }
 .btn--ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
 .btn--ghost:hover { background: var(--ink); color: var(--paper); }
-.hero--full .btn--ghost {
-  color: #FBF6EC;
-  border-color: rgba(251,246,236,0.75);
-  background: rgba(20,17,14,0.25);
-  backdrop-filter: blur(6px);
-}
-.hero--full .btn--ghost:hover {
-  background: #FBF6EC;
-  color: #1A0F08;
-  border-color: #FBF6EC;
-}
 .btn--light { background: #FBF6EC; color: #1A0F08; }
 .btn--light:hover { background: var(--accent); }
 .btn--full { width: 100%; justify-content: center; padding: 18px; }
@@ -210,7 +199,7 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(251,246,236,0.85);
+  color: var(--inkSoft);
   margin-bottom: 40px;
 }
 .hero__eyebrow .dot {
@@ -242,13 +231,13 @@ button { font-family: inherit; cursor: pointer; }
 .hero--full {
   height: 100vh;
   min-height: 720px;
-  color: #FBF6EC;
+  color: var(--ink);
   padding: 160px var(--pad) 60px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-.hero--full .hero__sub { color: rgba(251,246,236,0.88); }
+.hero--full .hero__sub { color: var(--inkSoft); }
 .hero__bg {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -270,17 +259,14 @@ button { font-family: inherit; cursor: pointer; }
 @keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
 .hero__scrim {
   position: absolute; inset: 0;
-  /* Two-layer treatment so the video reads as a *backdrop*, not a feature:
-     - vertical gradient: dark top (nav legibility) + dark bottom (title legibility),
-       with the middle still pulled down enough to mute busy frames.
-     - radial vignette: subtle inward darkening at the corners. */
-  background:
-    radial-gradient(ellipse 120% 90% at 50% 55%, rgba(20,17,14,0) 0%, rgba(20,17,14,0.35) 100%),
-    linear-gradient(180deg,
-      rgba(20,17,14,0.70) 0%,
-      rgba(20,17,14,0.40) 35%,
-      rgba(20,17,14,0.55) 65%,
-      rgba(20,17,14,0.85) 100%);
+  /* Cream fade-to-bottom: video stays clean at the top (where nav sits over
+     it), gradually washes into the page background by the bottom (where the
+     dark title and meta sit on near-solid cream). The base color is --bg so
+     the fade blends seamlessly into the body. */
+  background: linear-gradient(180deg,
+    rgba(245,237,224, 0.00) 0%,
+    rgba(245,237,224, 0.35) 55%,
+    rgba(245,237,224, 0.95) 100%);
   z-index: 1;
 }
 .hero__content {
@@ -297,7 +283,7 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 0.95;
   letter-spacing: -0.02em;
   margin: 0;
-  color: #FBF6EC;
+  color: var(--ink);
   display: flex;
   flex-direction: column;
 }
@@ -326,7 +312,7 @@ button { font-family: inherit; cursor: pointer; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  border-top: 1px solid rgba(251,246,236,0.25);
+  border-top: 1px solid var(--line);
   padding-top: 22px;
 }
 .hero__meta > div {
@@ -338,12 +324,12 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(251,246,236,0.65);
+  color: var(--inkSoft);
 }
 .hero__meta-v {
   font-family: var(--font-display);
   font-size: 22px;
-  color: #FBF6EC;
+  color: var(--ink);
 }
 
 /* ============= MARQUEE ============= */
