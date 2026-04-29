@@ -251,6 +251,9 @@ button { font-family: inherit; cursor: pointer; }
   backface-visibility: hidden;
   will-change: transform;
 }
+/* Mobile-only photo card. Hidden on desktop/tablet -- the media query at the
+   bottom of the file flips this on under 760px and hides the video. */
+.hero__photo { display: none; }
 /* Ken Burns zoom kept for image-based heroes; disabled on the video bg
    because re-scaling each video frame causes subpixel jitter. */
 .hero__bg:not(video) {
@@ -1089,15 +1092,43 @@ button { font-family: inherit; cursor: pointer; }
   .section__head { margin-bottom: 50px; }
   .section__title { font-size: clamp(36px, 9vw, 56px); }
 
-  /* Hero full bleed */
-  .hero--full { min-height: 640px; padding: 120px var(--pad) 40px; }
+  /* Nav -- on-dark treatment is dropped on mobile because the hero is no
+     longer a full-bleed dark video; nav now sits on cream like the rest. */
+  .nav--on-dark .nav__brand-name { color: var(--ink); }
+  .nav--on-dark .nav__burger { color: var(--ink); border-color: var(--ink); }
+
+  /* Hero -- photo on top, text below on cream (mobile reflow).
+     Drops the full-bleed video + scrim + overlay-text composition. */
+  .hero--full {
+    height: auto;
+    min-height: 0;
+    padding: 96px var(--pad) 40px;
+    display: block;
+  }
+  .hero__bg { display: none; }
+  .hero__scrim { display: none; }
+  .hero__photo {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    margin-bottom: 36px;
+    z-index: auto;
+  }
+  .hero__content {
+    position: static;
+    z-index: auto;
+    padding: 0;
+  }
   .hero__title { font-size: clamp(44px, 12vw, 72px); }
   .hero__title-line:nth-child(2) { padding-left: 0.6em; }
   .hero__title-line:nth-child(3) { padding-left: 0.2em; }
   .hero__title-line:nth-child(4) { padding-left: 0.8em; }
+  .hero__title-italic { color: var(--inkSoft); }
   .hero__sub { font-size: 15px; margin: 18px 0 28px; }
   .hero__eyebrow { margin-bottom: 28px; font-size: 10px; letter-spacing: 0.18em; }
-  .hero__meta { grid-template-columns: 1fr; gap: 14px; margin-top: 36px; padding-top: 18px; }
+  .hero__meta { position: static; grid-template-columns: 1fr; gap: 14px; margin: 36px 0 0; padding-top: 18px; }
   .hero__meta-v { font-size: 18px; }
 
   /* Marquee */
