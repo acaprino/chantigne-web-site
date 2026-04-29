@@ -5,7 +5,7 @@
   // Just enforce mute and a slowed playback rate.
   const heroVideo = document.getElementById('hero-video');
   if (heroVideo) {
-    const SPEED = 0.5;
+    const SPEED = 0.75;
     heroVideo.muted = true;
     heroVideo.volume = 0;
     heroVideo.playbackRate = SPEED;
