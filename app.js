@@ -1,66 +1,20 @@
 (() => {
-  // ============= HERO video ping-pong (boomerang) loop =============
+  // ============= HERO video playback =============
+  // The mp4 in img/hero.mp4 is pre-baked as a boomerang (forward + reversed
+  // concatenated), so a plain HTML loop is enough -- no rAF scrubbing needed.
+  // Just enforce mute and a slowed playback rate.
   const heroVideo = document.getElementById('hero-video');
   if (heroVideo) {
     const SPEED = 0.5;
-    const END_GUARD = 0.12; // start reversing this many seconds before duration
-
     heroVideo.muted = true;
     heroVideo.volume = 0;
-    heroVideo.removeAttribute('loop');
     heroVideo.playbackRate = SPEED;
-
-    let lastTs = 0;
-    let rafId = 0;
-    let reversing = false;
-
-    const reverseTick = (ts) => {
-      if (!lastTs) lastTs = ts;
-      const dt = (ts - lastTs) / 1000;
-      lastTs = ts;
-      const next = heroVideo.currentTime - dt * SPEED;
-      if (next <= 0) {
-        heroVideo.currentTime = 0;
-        lastTs = 0;
-        rafId = 0;
-        reversing = false;
-        heroVideo.playbackRate = SPEED;
-        heroVideo.play().catch(() => {});
-        return;
-      }
-      heroVideo.currentTime = next;
-      rafId = requestAnimationFrame(reverseTick);
-    };
-
-    const startReverse = () => {
-      if (reversing) return;
-      reversing = true;
-      heroVideo.pause();
-      lastTs = 0;
-      rafId = requestAnimationFrame(reverseTick);
-    };
-
-    heroVideo.addEventListener('timeupdate', () => {
-      if (reversing) return;
-      const d = heroVideo.duration;
-      if (d && isFinite(d) && heroVideo.currentTime >= d - END_GUARD) {
-        startReverse();
-      }
-    });
-
-    // Fallback: in case 'ended' fires before timeupdate hits the threshold
-    heroVideo.addEventListener('ended', startReverse);
-
     heroVideo.addEventListener('loadedmetadata', () => {
       heroVideo.playbackRate = SPEED;
-      heroVideo.play().catch(() => {});
     });
-
-    // If metadata was already available before the listener attached
-    if (heroVideo.readyState >= 1) {
+    heroVideo.addEventListener('play', () => {
       heroVideo.playbackRate = SPEED;
-      heroVideo.play().catch(() => {});
-    }
+    });
   }
 
   // ============= NAV scroll + drawer state =============

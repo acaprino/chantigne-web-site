@@ -54,7 +54,7 @@ There is no other dev workflow. No build step, no watch task, no formatter to ru
 
 **JS scope.** Everything lives in the single IIFE in `app.js`. Add new behaviors as a labeled block (`// ============= NAME =============`) inside it. Guard DOM lookups with `if (el)` when an element might be absent (see hero video pattern).
 
-**Hero video.** The ping-pong loop is custom because HTML5 `loop` only plays forward. Don't replace it with `<video loop>` -- the visual intent is to reverse, not to jump-cut back to t=0.
+**Hero video.** `img/hero.mp4` is pre-baked as a boomerang (forward + reversed concatenated with `ffmpeg -filter_complex "[0:v]split[v1][v2];[v2]reverse[vr];[v1][vr]concat=n=2:v=1:a=0[out]"`). The HTML uses native `loop` and the JS only sets `playbackRate = 0.5`. Do NOT scrub `currentTime` backward via rAF -- that approach causes judder because mp4 keyframes are 1-2 s apart and the browser cannot decode arbitrary intermediate frames in reverse. To change speed, edit the `SPEED` constant in `app.js`. To change the loop pattern, re-encode the file with ffmpeg.
 
 **Form prenotazione has no backend.** The submit handler in `app.js` swaps the form for a confirmation block. If a real backend gets wired up, replace the `formEl.addEventListener('submit', ...)` body -- don't add fetch logic alongside the fake handler.
 
