@@ -1,34 +1,66 @@
 (() => {
-  // ============= HERO video ping-pong loop =============
+  // ============= HERO video ping-pong (boomerang) loop =============
   const heroVideo = document.getElementById('hero-video');
   if (heroVideo) {
-    const HERO_SPEED = 0.8;
+    const SPEED = 0.8;
+    const END_GUARD = 0.12; // start reversing this many seconds before duration
+
     heroVideo.muted = true;
     heroVideo.volume = 0;
-    heroVideo.playbackRate = HERO_SPEED;
+    heroVideo.removeAttribute('loop');
+    heroVideo.playbackRate = SPEED;
+
     let lastTs = 0;
-    const reverseStep = (ts) => {
+    let rafId = 0;
+    let reversing = false;
+
+    const reverseTick = (ts) => {
       if (!lastTs) lastTs = ts;
       const dt = (ts - lastTs) / 1000;
       lastTs = ts;
-      heroVideo.currentTime = Math.max(0, heroVideo.currentTime - dt * HERO_SPEED);
-      if (heroVideo.currentTime <= 0.02) {
+      const next = heroVideo.currentTime - dt * SPEED;
+      if (next <= 0) {
+        heroVideo.currentTime = 0;
         lastTs = 0;
-        heroVideo.playbackRate = HERO_SPEED;
+        rafId = 0;
+        reversing = false;
+        heroVideo.playbackRate = SPEED;
         heroVideo.play().catch(() => {});
         return;
       }
-      requestAnimationFrame(reverseStep);
+      heroVideo.currentTime = next;
+      rafId = requestAnimationFrame(reverseTick);
     };
-    heroVideo.addEventListener('ended', () => {
-      lastTs = 0;
+
+    const startReverse = () => {
+      if (reversing) return;
+      reversing = true;
       heroVideo.pause();
-      requestAnimationFrame(reverseStep);
+      lastTs = 0;
+      rafId = requestAnimationFrame(reverseTick);
+    };
+
+    heroVideo.addEventListener('timeupdate', () => {
+      if (reversing) return;
+      const d = heroVideo.duration;
+      if (d && isFinite(d) && heroVideo.currentTime >= d - END_GUARD) {
+        startReverse();
+      }
     });
+
+    // Fallback: in case 'ended' fires before timeupdate hits the threshold
+    heroVideo.addEventListener('ended', startReverse);
+
     heroVideo.addEventListener('loadedmetadata', () => {
-      heroVideo.playbackRate = HERO_SPEED;
+      heroVideo.playbackRate = SPEED;
       heroVideo.play().catch(() => {});
     });
+
+    // If metadata was already available before the listener attached
+    if (heroVideo.readyState >= 1) {
+      heroVideo.playbackRate = SPEED;
+      heroVideo.play().catch(() => {});
+    }
   }
 
   // ============= NAV scroll + drawer state =============
