@@ -162,15 +162,15 @@ button { font-family: inherit; cursor: pointer; }
 }
 .nav__brand-name {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 40px;
   letter-spacing: 0.02em;
 }
 .nav__brand-est {
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--inkSoft);
-  margin-left: 4px;
+  margin-left: 6px;
 }
 .nav__cta {
   font-size: 13px;
@@ -1062,7 +1062,7 @@ button { font-family: inherit; cursor: pointer; }
   .nav__brand-est { display: none; }
   .nav__right { display: none; }
   .nav__burger { display: inline-flex; }
-  .nav__brand-name { font-size: 22px; }
+  .nav__brand-name { font-size: 32px; }
 
   .section { padding: 80px var(--pad); }
   .section__head { margin-bottom: 50px; }
